@@ -6,4 +6,5 @@ santa)
     downloadURL=$(downloadURLFromGit google santa)
     appNewVersion=$(versionFromGit google santa)
     expectedTeamID="EQHXZ8M8AV"
+    BLOCKING_PROCESS_ACTION="kill"
     ;;
