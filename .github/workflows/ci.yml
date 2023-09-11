@@ -20,7 +20,7 @@ jobs:
       run: ./assemble.sh || true
 
     - name: nodebug
-      run: sed -i '' -e 's/^DEBUG=1$/DEBUG=0/g' ./Installomator.sh
+      run: sed -e 's/^DEBUG=1$/DEBUG=0/g' ./Installomator.sh > tmpfile && mv tmpfile ./Installomator.sh
 
     - name: chmod
       run: chmod 755 ./Installomator.sh
