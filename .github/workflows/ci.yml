@@ -14,12 +14,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install xmllint
+    - name: Install zsh
       run: sudo apt-get install -y zsh
 
     - name: assemble
-      run: ./assemble.sh --pkg
-
-    - name: Create a Release in a GitHub Action
-      uses: comnoco/create-release-action@v2.0.5
-            
+      run: ./assemble.sh
+      
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+          files: Installomator.sh
