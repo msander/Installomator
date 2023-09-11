@@ -18,6 +18,12 @@ jobs:
 
     - name: assemble
       run: ./assemble.sh || true
+
+    - name: nodebug
+      run: sed -i '' -e 's/^DEBUG=1$/DEBUG=0/g' ./Installomator.sh
+
+    - name: chmod
+      run: chmod 755 ./Installomator.sh
       
     - name: Release
       uses: softprops/action-gh-release@v1
