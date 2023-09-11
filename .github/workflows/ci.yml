@@ -17,7 +17,7 @@ jobs:
       run: sudo apt-get install -y zsh
 
     - name: assemble
-      run: ./assemble.sh || true
+      run: ./assemble.sh -s || true
 
     - name: nodebug
       run: sed -e 's/^DEBUG=1$/DEBUG=0/g' ./Installomator.sh > tmpfile && mv tmpfile ./Installomator.sh
