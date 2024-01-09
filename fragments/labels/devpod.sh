@@ -1,4 +1,4 @@
-autopkgr)
+devpod)
     name="devpod"
     type="dmg"
     downloadURL=$(downloadURLFromGit loft-sh devpod)
