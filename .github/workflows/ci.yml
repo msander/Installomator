@@ -2,10 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+    tags:
+      - "v*.*.*"
+      
 jobs:
   build:
 
@@ -14,12 +13,19 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install xmllint
+    - name: Install zsh
       run: sudo apt-get install -y zsh
 
     - name: assemble
-      run: ./assemble.sh --pkg
+      run: ./assemble.sh -s || true
 
-    - name: Create a Release in a GitHub Action
-      uses: comnoco/create-release-action@v2.0.5
-            
+    - name: nodebug
+      run: sed -e 's/^DEBUG=1$/DEBUG=0/g' ./Installomator.sh > tmpfile && mv tmpfile ./Installomator.sh
+
+    - name: chmod
+      run: chmod 755 ./Installomator.sh
+      
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+          files: Installomator.sh
