@@ -1,5 +1,5 @@
 autopkgr)
-    name="Devpod"
+    name="devpod"
     type="dmg"
     downloadURL=$(downloadURLFromGit loft-sh devpod)
     appNewVersion=$(versionFromGit loft-sh devpod)
