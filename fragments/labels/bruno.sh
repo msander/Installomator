@@ -6,8 +6,8 @@ bruno)
     elif [[ $(arch) == "i386" ]]; then
         archiveName="x64_mac\\.dmg"
     fi
-    downloadURL=$(downloadURLFromGit PowerShell PowerShell)
-    appNewVersion=$(versionFromGit PowerShell PowerShell)
+    downloadURL=$(downloadURLFromGit usebruno bruno)
+    appNewVersion=$(versionFromGit usebruno bruno)
     expectedTeamID="W7LPPWA48L"
     ;;
     
